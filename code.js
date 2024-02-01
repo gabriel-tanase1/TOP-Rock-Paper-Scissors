@@ -1,5 +1,5 @@
-const computerChoice = 'paper';
 let playerChoice;
+let computerChoice;
 let keepGoing=true;
 let playerScore =0;
 let computerScore =0;
@@ -21,9 +21,7 @@ ${playerChoice} beats ${computerChoice}`);
     console.log(
 `The Computer wins!
 ${computerChoice} beats ${playerChoice}`);
-                return computerScore++;
-
-                
+    return computerScore++;             
  }
 }
 
@@ -31,6 +29,7 @@ function playGame(){
 while(keepGoing===true){
     if(roundCount<=5){
     playerChoice=prompt('Rock, paper, scissors?');
+    computerChoice=getComputerChoice();
     playRound();
     console.log(`Round:${roundCount}
     player score:${playerScore}
@@ -55,6 +54,11 @@ while(keepGoing===true){
 }
  }
 
+}
+
+function getComputerChoice(){
+    const possibleChoices=['rock','paper','scissors'];
+    return possibleChoices[Math.floor(Math.random()*possibleChoices.length)];
 }
 
 playGame();

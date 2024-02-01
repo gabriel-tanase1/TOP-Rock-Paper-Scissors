@@ -1,9 +1,9 @@
 const computerChoice = 'paper';
-const playerChoice = 'scissors';
+let playerChoice;
 let keepGoing=true;
 let playerScore =0;
 let computerScore =0;
-let roundCount =0;
+let roundCount =1;
 
 function playRound(){
 if(computerChoice===playerChoice){
@@ -28,9 +28,33 @@ ${computerChoice} beats ${playerChoice}`);
 }
 
 function playGame(){
-while(keepGoing==='true'){
+while(keepGoing===true){
+    if(roundCount<=5){
     playerChoice=prompt('Rock, paper, scissors?');
+    playRound();
+    console.log(`Round:${roundCount}
+    player score:${playerScore}
+    computer score:${computerScore}`);
+    roundCount++;
+} else {
+    keepGoing=false;
+    if(computerScore===playerScore){
+        console.log(`Draw!
+        player score: ${playerScore}
+        computer score:${computerScore}`)
+    } else if(playerScore>computerScore){
+        console.log(`The player wins!
+        player score: ${playerScore}
+        computer score:${computerScore}`)
+    } else {
+        console.log(`The computer wins!
+        player score: ${playerScore}
+        computer score:${computerScore}`)
+    }
+
+}
+ }
 
 }
 
-}
+playGame();
